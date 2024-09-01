@@ -6,7 +6,7 @@ import datetime
 # Create your views here.
 def index(req):
     if req.method=='POST':
-        city_name=request.POST['city']
+        city_name=req.POST['city']
         url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid=360e4bc3865e745ec844bd7ec054ca11'
         data-requests.get(url)
         weather_data=data.json()
@@ -35,7 +35,7 @@ def index(req):
     else:
         city_name='Kochi'
         url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid=360e4bc3865e745ec844bd7ec054ca11'
-        data-requests.get(url)
+        data=requests.get(url)
         weather_data=data.json()
         dt_object=datetime.datetime.fromtimestamp(weather_data['sys']['sunrise'])
         dt_object1=datetime.datetime.fromtimestamp (weather_data['sys']['sunset'])
