@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transparent Card with Background</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Weather</title>
     <style>
         body, html {
     margin: 0;
@@ -14,7 +14,7 @@
 }
 
 .background-image {
-    background-image: url('static/LondonTowerBridgeTicket-Klook.jpg'); /* Replace with your image URL */
+    background-image: url(../static/bg1.jpg); /* Replace with your image URL */
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -48,34 +48,39 @@
 .card-section p {
     font-size: 16px;
 }
+.card .divider {
+            width: 2px;
+            background-color: #0f0e0e;
+            margin: 0 20px;
+        }
     </style>
 </head>
 <body>
-    {% for i in data %}
     <div class="background-image">
         <div class="card">
             <div class="card-section">
-                <h2>city : {{data.city}}</h2>
-                <p><strong>Visibility</strong>{{data.visibility}}km</p>
-                <p><strong>cloud</strong>{{data.cloud}}%</p>
-                <p><strong>Wind</strong>{{data.wind}}km/h</p>
+                <h2>City : {{data.city}}</h2>
+                <p><strong>Visibility : </strong>{{data.visibility}}km</p>
+                <p><strong>Cloud : </strong>{{data.cloud}}%</p>
+                <p><strong>Wind : </strong>{{data.wind}}km/h</p>
             </div>
+            <div class="divider"></div>
             <div class="card-section">
                 <h2>Temperature</h2>
-            <p><strong>Current</strong>{{data.temperature_celsius}} <sup>o</sup>c</p>
-            <p><strong>Temp MaX</strong>{{data.temp_max_celsius}}<sup>o</sup>c</p>
-            <p><strong>Temp Min</strong>{{data.temp_min_celsius}}<sup>o</sup>c</p>
-            <p><strong>Feels Like</strong>{{data.feel_temp}}<sup>o</sup>c</p>
+                <p><strong>Current : </strong>{{data.temperature_celsius}}<sup>o</sup>c</p>
+                <p><strong>Temp MaX : </strong>{{data.temp_max_celsius}}<sup>o</sup>c</p>
+                <p><strong>Temp Min : </strong>{{data.temp_min_celsius}}<sup>o</sup>c</p>
+                <p><strong>Feels Like : </strong>{{data.feel_temp}}<sup>o</sup>c</p>
             </div>
+            <div class="divider"></div>
             <div class="card-section">
-                <h2>others</h2>
-                <p><strong>Pressure</strong>{{data.pressure}} <sup>o</sup>c</p>
-                <p><strong>Humidity</strong>{{data.humidity}}<sup>o</sup>c</p>
-                <p><strong>Sea Level</strong>{{data.sea_level}}<sup>o</sup>c</p>
-                <p><strong>Ground Level</strong>{{data.grnd_level}}<sup>o</sup>c</p>
+                <h2>Others</h2>
+                <p><strong>Pressure : </strong>{{data.pressure}}<sup>o</sup>c</p>
+                <p><strong>Humidity : </strong>{{data.humidity}}<sup>o</sup>c</p>
+                <p><strong>Sea Level : </strong>{{data.sea_level}}<sup>o</sup>c</p>
+                <p><strong>Ground Level : </strong>{{data.grnd_level}}<sup>o</sup>c</p>
             </div>
         </div>
     </div>
-    {% endfor %}
 </body>
 </html>
